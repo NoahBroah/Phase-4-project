@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
     #Allow a user to singup and login
+    skip_before_action :authorize, only: :create
+
     def create
         @user = User.create(user_params)
         if @user.valid?
