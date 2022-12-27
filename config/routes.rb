@@ -7,6 +7,7 @@ delete '/logout', to: 'sessions#destroy'
 
 # User Routes
 post '/signup', to: 'users#create'
+get '/me', to: 'users#show'
 
 
 
