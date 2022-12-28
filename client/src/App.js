@@ -7,7 +7,6 @@ import Home from './Home';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
-  const [loggedIn, setLoggedIn] = useState(false)
 
   // useEffect(() => {
   //   fetch("/me")
@@ -31,7 +30,7 @@ function App() {
     })
   }, [])
    
-  // if(!currentUser) return <Login setCurrentUser={setCurrentUser} />
+  // if(!currentUser) return <Signup setCurrentUser={setCurrentUser} />
   return (
     <BrowserRouter>
     <div className="App">

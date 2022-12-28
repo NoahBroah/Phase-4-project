@@ -97,7 +97,7 @@ function Signup({ setCurrentUser }) {
     <div className="Auth-form-container">
       <form className="Auth-form" onSubmit={handleSignupSubmit}>
         <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Sign In</h3>
+          <h3 className="Auth-form-title">Sign Up</h3>
           <div className="text-center">
             Already registered?{" "}
             <span className="link-primary" onClick={changeAuthMode}>
@@ -129,9 +129,6 @@ function Signup({ setCurrentUser }) {
               Submit
             </button>
           </div>
-          <p className="text-center mt-2">
-            Forgot <a href="#">password?</a>
-          </p>
         </div>
       </form>
     </div>
