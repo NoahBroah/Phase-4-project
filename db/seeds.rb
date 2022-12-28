@@ -7,4 +7,5 @@
 #   Character.create(name: "Luke", movie: movies.first)
 # u1 = User.create({ username:'Noah', password:'mypassword'})
 # u2 = User.create({ username:'Jerm', password:'mypassword'})
-p1 = Project.create({title:"Art Project", description:"I would like to start a collaborative art project done by multiple people in different art forms", number_of_people:10, creator:"Noah", user_id:3})
+# p1 = Project.create({title:"Art Project", description:"I would like to start a collaborative art project done by multiple people in different art forms", number_of_people:10, creator:"Noah", user_id:3})
+p2 = Project.create({title:"Fairytale Book", description:"I would like to start a collaborative to create a fairytale book", number_of_people:3, creator:"Sheda", user_id:7})
