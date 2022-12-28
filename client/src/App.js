@@ -10,11 +10,29 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [loggedIn, setLoggedIn] = useState(false)
 
+  // useEffect(() => {
+  //   fetch("/me")
+  //   .then((resp) => resp.json())
+  //   .then((user) => {
+  //     if(user.username) {
+  //       setCurrentUser(user);
+  //       setLoggedIn(true);
+  //     }
+  //   })
+  // },[])
+
+  // From the lessons on Authorization 
+
   useEffect(() => {
-    fetch("/me")
-    .then((resp) => resp.json())
-    .then((user) => setCurrentUser(user))
-  },[])
+    fetch('/auth')
+    .then(resp => {
+      if(resp.ok){
+        resp.json().then(user => setCurrentUser(user))
+      }
+    })
+  }, [])
+   
+  if(!currentUser) return <Login setCurrentUser={setCurrentUser} />
   return (
     <BrowserRouter>
     <div className="App">
@@ -24,10 +42,10 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/signup">
-          <Signup/>
+          <Signup />
         </Route>
         <Route path="/login">
-          <Login/>
+          <Login setCurrentUser={setCurrentUser} setLoggedIn={setLoggedIn}/>
         </Route>
       </Switch>
     </div>

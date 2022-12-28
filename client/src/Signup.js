@@ -1,7 +1,33 @@
 import React, { useState } from 'react'
 
-function Signup() {
+function Signup({ setCurrentUser, setLoggedIn }) {
     const [authMode, setAuthMode] = useState("signin")
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [errors, setErrors] = useState([])
+    const [login, setLogin] = useState("")
+
+    function onSubmit(e){
+        e.preventDefault()
+        const user = {
+            username,
+            password
+        }
+        fetch("/signup",{
+            method: "POST",
+            headers: { 'Content-Type':'application/json'},
+            body: JSON.stringify(user)
+        })
+        .then(resp => {
+            if(resp.ok){
+                resp.json().then(setCurrentUser)
+            } else {
+                resp.json().then( e => setErrors(console.error())) // <-- this might not work <--
+            }
+        }
+            )
+        .then(user => setLoggedIn(user))
+    }
     
     const changeAuthMode = () => {
         setAuthMode(authMode === "signin" ? "signup" : "signin")
@@ -10,7 +36,7 @@ function Signup() {
       if (authMode === "signin") {
         return (
           <div className="Auth-form-container">
-            <form className="Auth-form">
+            <form className="Auth-form" onSubmit={onSubmit}>
               <div className="Auth-form-content">
                 <h3 className="Auth-form-title">Sign In</h3>
                 <div className="text-center">
@@ -20,11 +46,12 @@ function Signup() {
                   </span>
                 </div>
                 <div className="form-group mt-3">
-                  <label>Email address</label>
+                  <label>Username</label>
                   <input
-                    type="email"
+                    type="username"
                     className="form-control mt-1"
-                    placeholder="Enter email"
+                    placeholder="Enter username"
+                    //NEED TO ADD onChange
                   />
                 </div>
                 <div className="form-group mt-3">

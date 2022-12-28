@@ -1,6 +1,34 @@
 import React from 'react'
+import { useState } from 'react'
 
-function Login() {
+function Login({setCurrentUser, setLoggedIn}) {
+
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [errors, setErrors] = useState([])
+    const [login, setLogin] = useState("")
+
+    function onSubmit(e){
+        e.preventDefault()
+        const user = {
+            username,
+            password
+        }
+        fetch("/signup",{
+            method: "POST",
+            headers: { 'Content-Type':'application/json'},
+            body: JSON.stringify(user)
+        })
+        .then(resp => {
+            if(resp.ok){
+                resp.json().then(setCurrentUser)
+            } else {
+                resp.json().then( e => setErrors(console.error())) // <-- this might not work <--
+            }
+        }
+            )
+        .then(user => setLoggedIn(user))
+    }
   return (
     <div className="Auth-form-container">
     <form className="Auth-form">
