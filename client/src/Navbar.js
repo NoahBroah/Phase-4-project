@@ -21,9 +21,6 @@ function Navbar({ setCurrentUser }) {
         <NavLink to="/signup" exact>
             Signup
         </NavLink>
-        <NavLink to="/login" exact>
-            Login
-        </NavLink>
         <NavLink to='/' onClick={handleLogout}>
           Logout
         </NavLink>

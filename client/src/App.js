@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
 import Navbar from './Navbar';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Login from './Login';
 import Signup from './Signup';
 import Home from './Home';
 
@@ -42,10 +41,7 @@ function App() {
           <Home user={currentUser}/>
         </Route>
         <Route exact path="/signup">
-          <Signup />
-        </Route>
-        <Route path="/login">
-          <Login setCurrentUser={setCurrentUser} setLoggedIn={setLoggedIn}/>
+          <Signup setCurrentUser={setCurrentUser}/>
         </Route>
       </Switch>
     </div>
