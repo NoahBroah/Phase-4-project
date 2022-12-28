@@ -36,7 +36,7 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App">
-      <Navbar loggedIn={loggedIn}/>
+      <Navbar setCurrentUser={setCurrentUser}/>
       <Switch>
         <Route exact path="/">
           <Home user={currentUser}/>

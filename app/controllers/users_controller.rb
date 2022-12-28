@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-    #Allow a user to singup and login
-    skip_before_action :authorize, only: [:create, :index]
+    before_action :authorize, only: :show
 
     def create
         user = User.create(user_params)
@@ -13,8 +12,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        user = User.find(session[:user_id])
-        render json: user
+        current_user = User.find_by(id: session[:user_id])
+        render json: current_user
     end
 
     def index
@@ -27,4 +26,8 @@ class UsersController < ApplicationController
     def user_params
         params.permit(:username, :password)
     end
+
+    def authorize
+        return render json: { errors: ["Not Authorized"]}, status: :unauthorized unless session.include? :user_id
+      end
 end
