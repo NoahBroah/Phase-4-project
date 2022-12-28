@@ -14,7 +14,7 @@ function Login({setCurrentUser, setLoggedIn}) {
             username,
             password
         }
-        fetch("/signup",{
+        fetch("/login",{
             method: "POST",
             headers: { 'Content-Type':'application/json'},
             body: JSON.stringify(user)
@@ -31,7 +31,7 @@ function Login({setCurrentUser, setLoggedIn}) {
     }
   return (
     <div className="Auth-form-container">
-    <form className="Auth-form">
+    <form className="Auth-form" onSubmit={onSubmit}>
       <div className="Auth-form-content">
         <h3 className="Auth-form-title"> Login</h3>
         <div className="form-group mt-3">
@@ -40,6 +40,8 @@ function Login({setCurrentUser, setLoggedIn}) {
             type="username"
             className="form-control mt-1"
             placeholder="Enter username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div className="form-group mt-3">
@@ -48,6 +50,8 @@ function Login({setCurrentUser, setLoggedIn}) {
             type="password"
             className="form-control mt-1"
             placeholder="Enter password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div className="d-grid gap-2 mt-3">

@@ -32,14 +32,14 @@ function App() {
     })
   }, [])
    
-  if(!currentUser) return <Login setCurrentUser={setCurrentUser} />
+  // if(!currentUser) return <Login setCurrentUser={setCurrentUser} />
   return (
     <BrowserRouter>
     <div className="App">
       <Navbar loggedIn={loggedIn}/>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home user={currentUser}/>
         </Route>
         <Route exact path="/signup">
           <Signup />
