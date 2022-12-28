@@ -10,6 +10,11 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [loggedIn, setLoggedIn] = useState(false)
 
+  useEffect(() => {
+    fetch("/me")
+    .then((resp) => resp.json())
+    .then((user) => setCurrentUser(user))
+  },[])
   return (
     <BrowserRouter>
     <div className="App">
