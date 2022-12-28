@@ -3,9 +3,9 @@ include ActionController::Cookies
 
 before_action :authorize
 
-  def login_user
-    session[:user_id] = @user.id
-  end
+  # def login_user
+  #   session[:user_id] = user.id
+  # end
 
   def find_current_user
     User.find_by(id: session[:user_id])

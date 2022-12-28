@@ -8,13 +8,13 @@ delete '/logout', to: 'sessions#destroy'
 # User Routes
 post '/signup', to: 'users#create'
 get '/me', to: 'users#show'
+get '/users', to: 'users#index'
 
 
 
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get '/hello', to: 'application#hello_world'
   get '*path',
       to: 'fallback#index',
       constraints: ->(req) { !req.xhr? && req.format.html? }
