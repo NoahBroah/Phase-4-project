@@ -8,17 +8,6 @@ import Home from './Home';
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
 
-  // useEffect(() => {
-  //   fetch("/me")
-  //   .then((resp) => resp.json())
-  //   .then((user) => {
-  //     if(user.username) {
-  //       setCurrentUser(user);
-  //       setLoggedIn(true);
-  //     }
-  //   })
-  // },[])
-
   // From the lessons on Authorization 
 
   useEffect(() => {
