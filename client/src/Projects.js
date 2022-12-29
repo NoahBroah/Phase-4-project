@@ -1,20 +1,22 @@
 import React, { useState } from 'react'
 
+const initialForm = {
+    title:'',
+    description:'',
+    number_of_people:''
+}
+
 function Projects({ projects, setProjects }) {
     const [projectView, setProjectView] = useState("View Projects")
-    const [title, setTitle] = useState('')
-    const [description, setDescription] = useState('')
-    const [numberOfPeople, setNumberOfPeople] = useState('')
     const [errors, setErrors] = useState([])
+    const [formData, setFormData] = useState(initialForm)
+    
 
     function handleNewProjectSubmit(e) {
         e.preventDefault();
-        
-        const newProject = {
-            title,
-            description,
-            numberOfPeople
-        }
+        alert('A new user has been created')
+
+        const newProject = { ...formData }
         fetch('/projects',{
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
@@ -75,29 +77,35 @@ function Projects({ projects, setProjects }) {
               <label>Title</label>
               <input
                 type="title"
+                name='title'
                 className="form-control mt-1"
                 placeholder="Enter title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                value={formData.title}
+                onChange={(e) => setFormData({...formData, 
+                    [e.target.name]:e.target.value})}
               />
             </div>
             <div className="form-group mt-3">
               <label>Description</label>
               <input
                 type="text"
+                name='description'
                 className="form-control mt-1"
                 placeholder="Enter description"
-                value={description}
-            onChange={(e) => setDescription(e.target.value)}             />
+                value={formData.description}
+                onChange={(e) => setFormData({...formData, 
+                    [e.target.name]:e.target.value})}            />
             </div>
             <div className="form-group mt-3">
               <label>Number of People Needed</label>
               <input
                 type="text"
+                name='number_of_people'
                 className="form-control mt-1"
                 placeholder="Enter a number"
-                value={numberOfPeople}
-            onChange={(e) => setNumberOfPeople(e.target.value)}             />
+                value={formData.number_of_people}
+                onChange={(e) => setFormData({...formData, 
+                    [e.target.name]:e.target.value})}             />
             </div>
             <div className="d-grid gap-2 mt-3">
               <button type="submit" className="btn btn-primary">
