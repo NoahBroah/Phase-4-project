@@ -10,14 +10,14 @@ function Home({ user}) {
         resp.json().then(projects => setProjects(projects))
       }
     })
-  })
+  },[])
 
   return (
     <div>
       {!user ? "Please login to see your account" :
        <div>
         {user.username}
-        <Projects projects={projects} />
+        <Projects projects={projects} setProjects={setProjects}/>
        </div>
        
        }
