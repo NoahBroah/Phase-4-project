@@ -14,20 +14,24 @@ function Projects({ projects, setProjects }) {
 
     function handleNewProjectSubmit(e) {
         e.preventDefault();
-        alert('A new user has been created')
+        alert('A new project has been created')
 
         const newProject = { ...formData }
+        // handleNewProject(newProject)
+
         fetch('/projects',{
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(newProject),
         }).then(resp => {
             if(resp.ok) {
-                resp.json().then(setProjects);
+                resp.json().then(console.log(newProject))
+                .then(setProjects([...projects,newProject]))
             } else {
                 resp.json().then((e) => setErrors(console.error()))
             }
         })
+      
 
     }
 
