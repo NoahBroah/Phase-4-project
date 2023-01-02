@@ -11,6 +11,9 @@ function Projects({ projects, setProjects }) {
     const [errors, setErrors] = useState([])
     const [formData, setFormData] = useState(initialForm)
     
+    function handleJoinClick(e) {
+        console.log(e)
+    }
 
     function handleNewProjectSubmit(e) {
         e.preventDefault();
@@ -54,7 +57,7 @@ function Projects({ projects, setProjects }) {
                             <h2>Title: {project.title}</h2>
                             <h3>Description: {project.description}</h3>
                             <h5>Number of people needed: {project.number_of_people}</h5>
-                            <button>Join this project</button>
+                            <button onClick={handleJoinClick}>Join this project</button>
                         </div>
                     )
                 })}

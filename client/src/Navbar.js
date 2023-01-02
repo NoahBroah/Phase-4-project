@@ -14,7 +14,7 @@ function Navbar({ setCurrentUser }) {
 
   }
   return (
-    <div>
+    <div className='nav'>
         <NavLink to="/" exact>
             Home
         </NavLink>
