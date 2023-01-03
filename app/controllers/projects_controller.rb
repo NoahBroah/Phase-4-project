@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
 
     def show
         project = Project.find_by(id: params[:id])
-        render json: project, status: :ok
+        render json: project, include: :notes, status: :ok
     end
     
     def index
