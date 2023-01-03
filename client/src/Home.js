@@ -13,20 +13,6 @@ function Home({ user}) {
     })
   },[])
 
-  // function handleNewProject(newProject) {
-  //   fetch('/projects',{
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json'},
-  //     body: JSON.stringify(newProject),
-  // }).then(resp => {
-  //     if(resp.ok) {
-  //         resp.json().then(console.log(newProject))
-  //         .then(setProjects)
-  //     } else {
-  //         resp.json().then((e) => setErrors(console.error()))
-  //     }
-  // })
-  // }
 
   return (
     <div>

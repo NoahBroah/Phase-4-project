@@ -4,6 +4,9 @@ import Navbar from './Navbar';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Signup from './Signup';
 import Home from './Home';
+import ProjectView from './ProjectView';
+import NewProjectView from './NewProjectView';
+import EditProjectView from './EditProjectView';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -30,6 +33,26 @@ function App() {
         </Route>
         <Route exact path="/signup">
           <Signup setCurrentUser={setCurrentUser}/>
+        </Route>
+        {/* view individual project */}
+        <Route path="/my_projects/:id">
+          <ProjectView 
+          // id={id}
+          />
+        </Route>
+        {/* create new project */}
+        <Route path="/my_projects/new">
+          <NewProjectView />
+        </Route>
+        {/* display all projects
+        <Route path="/my_projects">
+          <ProjectListView />
+        </Route> */}
+        {/* display all projects */}
+        <Route path="/my_projects/:id/edit">
+          <EditProjectView
+          //  id={id}
+           />
         </Route>
       </Switch>
     </div>

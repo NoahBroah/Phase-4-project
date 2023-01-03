@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import NewProjectView from './NewProjectView'
+import ProjectView from './ProjectView'
 
 const initialForm = {
     title:'',
@@ -13,6 +15,16 @@ function Projects({ projects, setProjects }) {
     
     function handleJoinClick(e) {
         console.log(e)
+    }
+
+    function handleDeleteClick(id) {
+        fetch(`/projects/${id}`, {
+            method: 'DELETE',
+        })
+        .then(() => {
+            // refetch projects and setProjects
+            
+        })
     }
 
     function handleNewProjectSubmit(e) {
@@ -45,84 +57,14 @@ function Projects({ projects, setProjects }) {
       if (projectView === "View Projects") {
         return (
           <div>
-            <div className="text-center">
-            <button onClick={changeProjectView}>
-              Create New Project
-            </button>
-            </div>
-            <div>
-                {projects.map((project) => {
-                    return (
-                        <div key={project.id}>
-                            <h2>Title: {project.title}</h2>
-                            <h3>Description: {project.description}</h3>
-                            <h5>Number of people needed: {project.number_of_people}</h5>
-                            <button onClick={handleJoinClick}>Join this project</button>
-                        </div>
-                    )
-                })}
-            </div>
+            <ProjectView projects={projects}   changeProjectView={changeProjectView} handleDeleteClick={handleDeleteClick}/>
           </div>
         );
       }
     
       return (
         <div>
-            <div>
-                <div>
-                <div className="text-center">
-              <button className="link-primary" onClick={changeProjectView}>
-                View All Projects
-              </button>
-            </div>
-                </div>
-            <div className="Auth-form-container">
-        <form className="Auth-form" onSubmit={handleNewProjectSubmit}>
-          <div className="Auth-form-content">
-            <h3 className="Auth-form-title">New Project</h3>
-            <div className="form-group mt-3">
-              <label>Title</label>
-              <input
-                type="title"
-                name='title'
-                className="form-control mt-1"
-                placeholder="Enter title"
-                value={formData.title}
-                onChange={(e) => setFormData({...formData, 
-                    [e.target.name]:e.target.value})}
-              />
-            </div>
-            <div className="form-group mt-3">
-              <label>Description</label>
-              <input
-                type="text"
-                name='description'
-                className="form-control mt-1"
-                placeholder="Enter description"
-                value={formData.description}
-                onChange={(e) => setFormData({...formData, 
-                    [e.target.name]:e.target.value})}            />
-            </div>
-            <div className="form-group mt-3">
-              <label>Number of People Needed</label>
-              <input
-                type="text"
-                name='number_of_people'
-                className="form-control mt-1"
-                placeholder="Enter a number"
-                value={formData.number_of_people}
-                onChange={(e) => setFormData({...formData, 
-                    [e.target.name]:e.target.value})}             />
-            </div>
-            <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-            </div>
+            <NewProjectView changeProjectView={changeProjectView} handleNewProjectSubmit={handleNewProjectSubmit} formData={formData} setFormData={setFormData} />
         </div>
        
       );

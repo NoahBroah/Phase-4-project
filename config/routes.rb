@@ -12,8 +12,8 @@ post '/signup', to: 'users#create'
 get '/auth', to: 'users#show'
 get '/users', to: 'users#index'
 
-
 # Project Routes
+delete '/delete_project', to: 'projects#destroy'
 
   # Defines the root path route ("/")
   # root "articles#index"

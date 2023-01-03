@@ -3,6 +3,6 @@ class User < ApplicationRecord
     
     validates :username, presence: true, uniqueness: true
     validates :password, presence: true, length: { minimum: 6}
-    has_many :projects, through: :subscriptions
-    has_many :subscriptions
+    has_many :projects
+    has_many :subscriptions, dependent: :destroy
 end

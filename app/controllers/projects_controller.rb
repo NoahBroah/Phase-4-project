@@ -31,8 +31,7 @@ class ProjectsController < ApplicationController
     def destroy
         user = @current_user
         project = Project.find_by(id: params[:id])
-        project_creator = project.creator
-        if user.username === project_creator
+        if user.id == project.user_id
             project.delete
             head :no_content
         else
