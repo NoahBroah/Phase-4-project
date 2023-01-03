@@ -34,25 +34,28 @@ function App() {
         <Route exact path="/signup">
           <Signup setCurrentUser={setCurrentUser}/>
         </Route>
+
+
+
+
         {/* view all projects */}
-        <Route path="/my_projects">
+        <Route exact path="/my_projects">
           <ProjectListView 
           // id={id}
           />
         </Route>
         {/* create new project */}
-        <Route path="/my_projects/new">
+        <Route exact path="/my_projects/new">
           <NewProjectView />
         </Route>
-        {/* display individual projects
-        <Route path="/my_projects/:id">
-          <ProjectView />
-        </Route> */}
+        {/* display individual projects */}
+        <Route exact path="/my_projects/:id">
+          <div>project view</div>
+          {/* <ProjectView /> */}
+        </Route>
         {/* display all projects */}
-        <Route path="/my_projects/:id/edit">
-          <EditProjectView
-          //  id={id}
-           />
+        <Route exact path="/my_projects/:id/edit">
+          <EditProjectView />
         </Route>
       </Switch>
     </div>

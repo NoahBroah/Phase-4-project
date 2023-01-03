@@ -22,6 +22,8 @@ function Projects({ projects, setProjects }) {
         
     }
 
+   
+
     function handleDeleteClick(id) {
         fetch(`/projects/${id}`, {
             method: 'DELETE',
@@ -37,20 +39,6 @@ function Projects({ projects, setProjects }) {
         })
     }
 
-    // function handleEditClick(id) {
-    //     fetch(`/projects/${id}`, {
-    //         method: 'PATCH',
-    //         headers: {'Content-Type': 'application/json'},
-    //         body: JSON.stringify(updatedProject),
-    //     }).then(resp => {
-    //         if(resp.ok) {
-    //             resp.json().then(console.log(updatedProject))
-    //             .then(setProjects([...projects,updatedProject]))
-    //         } else {
-    //             resp.json().then((e) => setErrors(console.error()))
-    //         }
-    //     })
-    // }
 
     function handleNewProjectSubmit(e) {
         e.preventDefault();
@@ -71,7 +59,6 @@ function Projects({ projects, setProjects }) {
                 resp.json().then((e) => setErrors(console.error()))
             }
         })
-        changeProjectView()
       
 
     }
