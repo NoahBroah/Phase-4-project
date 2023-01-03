@@ -7,6 +7,7 @@ import Home from './Home';
 import ProjectListView from './ProjectListView';
 import NewProjectView from './NewProjectView';
 import EditProjectView from './EditProjectView';
+import ProjectView from './ProjectView';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -50,8 +51,8 @@ function App() {
         </Route>
         {/* display individual projects */}
         <Route exact path="/my_projects/:id">
-          <div>project view</div>
-          {/* <ProjectView /> */}
+          {/* <div>project view</div> */}
+          <ProjectView />
         </Route>
         {/* display all projects */}
         <Route exact path="/my_projects/:id/edit">
