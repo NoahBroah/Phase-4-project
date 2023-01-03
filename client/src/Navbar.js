@@ -9,6 +9,7 @@ function Navbar({ setCurrentUser }) {
     }).then(resp => {
       if(resp.ok) {
         setCurrentUser(null)
+        alert('You have been logged out')
       }
     })
 
@@ -21,7 +22,7 @@ function Navbar({ setCurrentUser }) {
         <NavLink to="/signup" exact>
             Signup
         </NavLink>
-        <NavLink to='/' onClick={handleLogout}>
+        <NavLink to='/signup' onClick={handleLogout}>
           Logout
         </NavLink>
     </div>

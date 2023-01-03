@@ -2,7 +2,13 @@ import React from 'react'
 
 function EditProjectView() {
   return (
-    <div>EditProjectView</div>
+    <div>
+      <form>
+        <input>Title</input>
+        <input>Description</input>
+        <input>Number of People needed</input>
+      </form>
+    </div>
   )
 }
 

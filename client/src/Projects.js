@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import NewProjectView from './NewProjectView'
-import ProjectView from './ProjectView'
+import ProjectView from './ProjectListView'
 
 const initialForm = {
     title:'',
@@ -13,8 +13,13 @@ function Projects({ projects, setProjects }) {
     const [errors, setErrors] = useState([])
     const [formData, setFormData] = useState(initialForm)
     
-    function handleJoinClick(e) {
-        console.log(e)
+    function handleViewProject(id) {
+        fetch(`/projects/${id}`,)
+        .then(resp => resp.json())
+        .then(projects => {
+            <ProjectView projects={projects}/> //THIS IS WRONG
+        })
+        
     }
 
     function handleDeleteClick(id) {
@@ -23,9 +28,29 @@ function Projects({ projects, setProjects }) {
         })
         .then(() => {
             // refetch projects and setProjects
-            
+            fetch('/projects')
+    .then(resp => {
+      if(resp.ok){
+        resp.json().then(projects => setProjects(projects))
+      }
+    })
         })
     }
+
+    // function handleEditClick(id) {
+    //     fetch(`/projects/${id}`, {
+    //         method: 'PATCH',
+    //         headers: {'Content-Type': 'application/json'},
+    //         body: JSON.stringify(updatedProject),
+    //     }).then(resp => {
+    //         if(resp.ok) {
+    //             resp.json().then(console.log(updatedProject))
+    //             .then(setProjects([...projects,updatedProject]))
+    //         } else {
+    //             resp.json().then((e) => setErrors(console.error()))
+    //         }
+    //     })
+    // }
 
     function handleNewProjectSubmit(e) {
         e.preventDefault();
@@ -46,6 +71,7 @@ function Projects({ projects, setProjects }) {
                 resp.json().then((e) => setErrors(console.error()))
             }
         })
+        changeProjectView()
       
 
     }
@@ -57,7 +83,7 @@ function Projects({ projects, setProjects }) {
       if (projectView === "View Projects") {
         return (
           <div>
-            <ProjectView projects={projects}   changeProjectView={changeProjectView} handleDeleteClick={handleDeleteClick}/>
+            <ProjectView projects={projects}   changeProjectView={changeProjectView} handleDeleteClick={handleDeleteClick} handleViewProject={handleViewProject}/>
           </div>
         );
       }

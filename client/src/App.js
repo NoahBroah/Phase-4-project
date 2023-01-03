@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Signup from './Signup';
 import Home from './Home';
-import ProjectView from './ProjectView';
+import ProjectListView from './ProjectListView';
 import NewProjectView from './NewProjectView';
 import EditProjectView from './EditProjectView';
 
@@ -34,9 +34,9 @@ function App() {
         <Route exact path="/signup">
           <Signup setCurrentUser={setCurrentUser}/>
         </Route>
-        {/* view individual project */}
-        <Route path="/my_projects/:id">
-          <ProjectView 
+        {/* view all projects */}
+        <Route path="/my_projects">
+          <ProjectListView 
           // id={id}
           />
         </Route>
@@ -44,9 +44,9 @@ function App() {
         <Route path="/my_projects/new">
           <NewProjectView />
         </Route>
-        {/* display all projects
-        <Route path="/my_projects">
-          <ProjectListView />
+        {/* display individual projects
+        <Route path="/my_projects/:id">
+          <ProjectView />
         </Route> */}
         {/* display all projects */}
         <Route path="/my_projects/:id/edit">
