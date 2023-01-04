@@ -20,10 +20,12 @@ function ProjectView() {
   }, []);
 
   return (
-    <div>
-      <h1>{project.title}</h1>
-      <h2>{project.description}</h2>
-      <h4>{project.number_of_people}</h4>
+    <div className="solo-project">
+      <h1><span>Title: </span> {project.title}</h1>
+      <div className="solo-content">
+      <h3><span>Description: </span> {project.description}</h3>
+      <h3><span>People Needed: </span>{project.number_of_people}</h3>
+        </div >
       <div>
         <div>
           <Comments project={project}/>

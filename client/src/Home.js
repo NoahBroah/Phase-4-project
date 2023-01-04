@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ProjectListView from './ProjectListView'
 import Projects from './Projects'
+import "./home.css"
 
 function Home({ user}) {
   // // const [errors, setErrors] = useState([])
@@ -17,13 +18,18 @@ function Home({ user}) {
 
   return (
     <div>
-      {!user ? "Please login to see your account" :
-       <div>
-        {user.username}
-        <ProjectListView></ProjectListView>
-        {/* <Projects projects={projects} setProjects={setProjects}/> */}
-       </div>
-       
+      {!user ? "Please login to see your account"
+      :
+      <div>
+<div className="typewriter">
+        <span>
+          Welcome! You are now logged in
+        </span>
+      </div>
+          <div>
+            <ProjectListView/>
+          </div>
+      </div>
        }
       </div>
   )

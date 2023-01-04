@@ -1,32 +1,34 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Navbar({ setCurrentUser }) {
-
   function handleLogout() {
-    fetch('/logout',{
-      method: 'DELETE'
-    }).then(resp => {
-      if(resp.ok) {
-        setCurrentUser(null)
-        alert('You have been logged out')
+    fetch("/logout", {
+      method: "DELETE",
+    }).then((resp) => {
+      if (resp.ok) {
+        setCurrentUser(null);
+        alert("You have been logged out");
       }
-    })
-
+    });
   }
   return (
-    <div className='nav'>
-        <NavLink to="/" exact>
-            Home
+    <div className="nav">
+      <div className="nav-inner">
+        <NavLink to="/" exact className="title">
+          Collabland
         </NavLink>
-        <NavLink to="/signup" exact>
-            Signup
+      </div>
+      <div className="nav-inner">
+        <NavLink to="/signup" exact className="hvr-rotate">
+          Signup
         </NavLink>
-        <NavLink to='/signup' onClick={handleLogout}>
+        <NavLink to="/signup" className="hvr-rotate" onClick={handleLogout}>
           Logout
         </NavLink>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

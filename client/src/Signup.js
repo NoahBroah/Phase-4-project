@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom"
 
 function Signup({ setCurrentUser }) {
-  const [authMode, setAuthMode] = useState("signin");
+  const [authMode, setAuthMode] = useState("signup");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([])
