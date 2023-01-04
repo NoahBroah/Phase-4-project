@@ -1,19 +1,20 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #fa9390a9;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .App {
-  background-color: white;
+  background-color: hsl(148, 16%, 33%);
 }
 
 .Auth-form-container {
@@ -30,7 +31,57 @@ code {
   padding-top: 30px;
   padding-bottom: 20px;
   border-radius: 8px;
-  background-color: white;
+  background-color: #6581dc;
+}
+
+.button1 {
+  display: inline-block;
+  margin: 0 20px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: none;
+  border: 0;
+  transition: all 0.25s;
+  -webkit-box-shadow: 5px 5px 15px 5px #ff8080, -9px 5px 15px 5px #ffe488,
+    -7px -5px 15px 5px #8cff85, 12px -5px 15px 5px #80c7ff,
+    12px 10px 15px 7px #e488ff, -10px 10px 15px 7px #ff616b,
+    -10px -7px 27px 1px #8e5cff, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 5px 5px 15px 5px #ff8080, -9px 5px 15px 5px #ffe488,
+    -7px -5px 15px 5px #8cff85, 12px -5px 15px 5px #80c7ff,
+    12px 10px 15px 7px #e488ff, -10px 10px 15px 7px #ff616b,
+    -10px -7px 27px 1px #8e5cff, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.actions {
+margin: 2rem 1rem;
+}
+
+.button1:hover {
+  background: white;
+}
+
+.link:hover {
+  background: white;
+  color: black;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  background: none;
+  margin: 0 20px;
+  transition: all 0.25s;
+  padding: 4px 8px;
+  border-radius: 6px;
+  -webkit-box-shadow: 5px 5px 15px 5px #ff8080, -9px 5px 15px 5px #ffe488,
+    -7px -5px 15px 5px #8cff85, 12px -5px 15px 5px #80c7ff,
+    12px 10px 15px 7px #e488ff, -10px 10px 15px 7px #ff616b,
+    -10px -7px 27px 1px #8e5cff, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 5px 5px 15px 5px #ff8080, -9px 5px 15px 5px #ffe488,
+    -7px -5px 15px 5px #8cff85, 12px -5px 15px 5px #80c7ff,
+    12px 10px 15px 7px #e488ff, -10px 10px 15px 7px #ff616b,
+    -10px -7px 27px 1px #8e5cff, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
 .Auth-form-content {
@@ -50,4 +101,98 @@ label {
   font-size: 14px;
   font-weight: 600;
   color: rgb(34, 34, 34);
+}
+
+.nav {
+  background-color: #6581dc;
+  justify-content: flex;
+  color: white;
+  justify-content: space-between;
+  border-style: solid;
+  border-color: white;
+  border-width: 0 0 3px 0;
+}
+
+.nav-inner {
+  margin: 5px;
+  color: white;
+  padding: 5px;
+}
+
+.nav-inner a {
+  color: white;
+  text-decoration: none;
+  transition: linear 0.2s;
+  margin: 0 15px;
+  font-family: monospace;
+  text-transform: uppercase;
+}
+.nav-inner a:hover {
+  color: orange;
+  padding: 3px;
+}
+
+.title{
+  font-size: 1.6rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.project-card{
+  border-style: solid;
+  border-color: white;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  text-align: center;
+  justify-content: center;
+  width: 60%;
+  margin-left: 20%;
+}
+
+.text-center{
+  margin-bottom: 25px;
+  text-decoration: none;
+}
+.text-center a{
+  text-decoration: none;
+  padding: 12px;
+  border-style: solid;
+  border-radius: 8px;
+  border-width: 2px;
+  color: white;
+  background-color: #6581dc;
+font-family: monospace;
+}
+
+
+.username{
+  color: white
+}
+
+.solo-project{
+margin-top: 30px;
+height: 100vh;
+text-align: center;
+}
+
+.solo-content{
+  text-align: left;
+  margin-left: 25%;
+}
+
+.solo-project h1{
+  padding: 10px;
+border-style: solid;
+border-width: 5px;
+border-radius: 15px;
+border-color: white;
+background-color: #6581dc;
+width: 50%;
+margin-left: 25%;
+}
+
+.solo-project span{
+  color: white;
+  text-decoration: underline;
 }
