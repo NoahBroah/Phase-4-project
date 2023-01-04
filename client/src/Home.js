@@ -23,7 +23,7 @@ function Home({ user}) {
       <div>
 <div className="typewriter">
         <span>
-          Welcome! You are now logged in
+          Welcome! You are now logged in as {user.username}
         </span>
       </div>
           <div>
