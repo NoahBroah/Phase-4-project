@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import IndividualComment from "./IndividualComment";
 
-function Comments() {
+function Comments({ project }) {
   const { id } = useParams()
   const [comment, setComment] = useState("");
 
+  console.log(project)
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -25,6 +27,16 @@ function Comments() {
     <div>
       <div>
         <h5>Comments</h5>
+      </div>
+      <div>
+        {project?.notes?.map(note => {
+          return (
+            <IndividualComment 
+          key={note.id}
+          comment={note.comment}/>
+          )
+        })}
+        
       </div>
       <div>
         <form onSubmit={handleSubmit}>

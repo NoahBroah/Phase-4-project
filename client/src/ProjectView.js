@@ -4,14 +4,14 @@ import Comments from './Comments';
 
 function ProjectView() {
   const { id } = useParams();
-  const [project, setProject] = useState([]);
+  const [project, setProject] = useState({});
 
   async function fetchProjects() {
-    return fetch(`/projects/${id}`).then((resp) => {
-      if (resp.ok) {
-        resp.json().then(console.log(project))
-        .then((project) => setProject(project));
-      }
+    return fetch(`/projects/${id}`)
+    .then(r => r.json())
+    .then((project) => {
+      console.log(project)
+      setProject(project);
     });
   }
 
@@ -24,10 +24,9 @@ function ProjectView() {
       <h1>{project.title}</h1>
       <h2>{project.description}</h2>
       <h4>{project.number_of_people}</h4>
-      {/* <h5>{project.notes.comments}</h5> */}
       <div>
         <div>
-          <Comments />
+          <Comments project={project}/>
         </div>
       </div>
     </div>
