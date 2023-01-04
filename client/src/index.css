@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fa9390a9;
 }
 
 code {
@@ -14,7 +13,10 @@ code {
 }
 
 .App {
-  background-color: hsl(148, 16%, 33%);
+  /* background-color: hsl(148, 16%, 33%); */
+  background-image: url("/Users/noahking/Development/code/phase-4/phase-4-project/client/public/pexels-ann-h-1762851.jpg");
+  background-size: cover;
+  color: whitesmoke;
 }
 
 .Auth-form-container {
@@ -23,6 +25,7 @@ code {
   align-items: center;
   width: 100vw;
   height: 100vh;
+  color: white;
 }
 
 .Auth-form {
@@ -31,7 +34,8 @@ code {
   padding-top: 30px;
   padding-bottom: 20px;
   border-radius: 8px;
-  background-color: #6581dc;
+  background-color: #224ba2;
+  color: white;
 }
 
 .button1 {
@@ -65,6 +69,7 @@ margin: 2rem 1rem;
   color: black;
 }
 
+
 .link {
   display: inline-block;
   text-decoration: none;
@@ -93,18 +98,18 @@ margin: 2rem 1rem;
   text-align: center;
   margin-bottom: 1em;
   font-size: 24px;
-  color: rgb(34, 34, 34);
+  color: rgb(255, 251, 251);
   font-weight: 800;
 }
 
 label {
   font-size: 14px;
   font-weight: 600;
-  color: rgb(34, 34, 34);
+  color: rgb(250, 246, 246);
 }
 
 .nav {
-  background-color: #6581dc;
+  background-color: #5cb0e8;
   justify-content: flex;
   color: white;
   justify-content: space-between;
@@ -128,7 +133,7 @@ label {
   text-transform: uppercase;
 }
 .nav-inner a:hover {
-  color: orange;
+  color: #dbbf75;
   padding: 3px;
 }
 
@@ -141,13 +146,12 @@ label {
 
 .project-card{
   border-style: solid;
-  border-color: white;
+  border-color: #dbbf75;
   border-radius: 15px;
-  margin-bottom: 10px;
   text-align: center;
-  justify-content: center;
-  width: 60%;
-  margin-left: 20%;
+  width: 100%;
+  height: 100%;
+  background-color: #224ba2b7 ;
 }
 
 .text-center{
@@ -161,7 +165,7 @@ label {
   border-radius: 8px;
   border-width: 2px;
   color: white;
-  background-color: #6581dc;
+  background-color: #5cb0e8;
 font-family: monospace;
 }
 
@@ -179,6 +183,7 @@ text-align: center;
 .solo-content{
   text-align: left;
   margin-left: 25%;
+  color: whitesmoke;
 }
 
 .solo-project h1{
@@ -187,12 +192,12 @@ border-style: solid;
 border-width: 5px;
 border-radius: 15px;
 border-color: white;
-background-color: #6581dc;
+background-color: #224ba2;
 width: 50%;
 margin-left: 25%;
 }
 
 .solo-project span{
-  color: white;
+  color: black;
   text-decoration: underline;
 }

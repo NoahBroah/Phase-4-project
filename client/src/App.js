@@ -26,7 +26,7 @@ function App() {
   // if(!currentUser) return <Signup setCurrentUser={setCurrentUser} />
   return (
     <BrowserRouter>
-    <div className="App">
+    <div className="App" style={{minHeight: '100vh',}}>
       <Navbar setCurrentUser={setCurrentUser}/>
       <Switch>
         <Route exact path="/">

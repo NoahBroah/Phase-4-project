@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
-import { Project } from './Project';
 
 // function ProjectListView({ projects, changeProjectView, handleDeleteClick, handleViewProject }) {
 function ProjectListView() {
@@ -36,16 +35,16 @@ function ProjectListView() {
         {/* <button onClick={goToCreateProjectView}>
             </button> */}
       </div>
-      <Project project={projects?.[0] ?? {}}/>
-      <div>
+      <div className="container">
+        <div className="row justify-content-center">
         {projects.map((project) => {
           return (
-            // <Project key={project.id} project={project} handleDeleteClick={handleDeleteClick}/>
-            <div key={project.id} className="project-card">
+            <div key={project.id}  className="col-8 my-3">
+            <div  className="project-card p-3">
               <h2>Title: {project.title}</h2>
               <h3>Description: {project.description}</h3>
               <h5>Number of people needed: {project.number_of_people}</h5>
-              <div className="d-flex justify-content-around my-3">
+              <div className="d-flex justify-content-around my-3 text-nowrap">
               <Link className="mx-5 btn btn-light" to={`/my_projects/${project.id}`}>View this project</Link>
               {/* <button onClick={() => handleViewProject(project.id)}>View this project</button> */}
               <Link className="mx-5 btn btn-light" to={`/my_projects/${project.id}/edit`}>
@@ -56,8 +55,11 @@ function ProjectListView() {
               </button>
               </div>
             </div>
+        </div>
           );
         })}
+          
+        </div>
       </div>
     </div>
   );

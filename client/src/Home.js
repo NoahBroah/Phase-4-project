@@ -17,7 +17,7 @@ function Home({ user}) {
 
 
   return (
-    <div>
+    <div style={{ display: 'flex', justifyContent:'center',alignItems:'center'}}>
       {!user ? "Please login to see your account"
       :
       <div>
