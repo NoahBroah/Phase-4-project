@@ -4,7 +4,7 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true
     validates :password, presence: true, length: { minimum: 6}
     has_many :projects
-    has_many :notes, dependent: :destroy
+    has_many :notes
     has_many :projects, through: :notes
     has_many :projects
 end

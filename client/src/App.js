@@ -35,10 +35,6 @@ function App() {
         <Route exact path="/signup">
           <Signup setCurrentUser={setCurrentUser}/>
         </Route>
-
-
-
-
         {/* view all projects */}
         <Route exact path="/my_projects">
           <ProjectListView 

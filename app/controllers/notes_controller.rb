@@ -11,6 +11,14 @@ class NotesController < ApplicationController
     end
 
     def create
+        note = @current_user.notes.create(note_params)
+        
+        render json: note, status: :created
+    end
 
+    private
+
+    def note_params
+        params.permit(:comment, :project_id)
     end
 end

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom"
 
 function Signup({ setCurrentUser }) {
   const [authMode, setAuthMode] = useState("signin");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([])
+  const history = useHistory();
 
   function handleSignupSubmit(e) {
     e.preventDefault();
@@ -18,7 +20,8 @@ function Signup({ setCurrentUser }) {
       body: JSON.stringify(user),
     }).then((resp) => {
       if (resp.ok) {
-        resp.json().then(setCurrentUser);
+        resp.json().then(setCurrentUser)
+        history.push('/');
       } else {
         resp.json().then((e) => setErrors(console.error())); // <-- this might not work <--
       }
@@ -37,7 +40,8 @@ function Signup({ setCurrentUser }) {
       body: JSON.stringify(user),
     }).then((resp) => {
       if (resp.ok) {
-        resp.json().then(setCurrentUser);
+        resp.json().then(setCurrentUser)
+        history.push('/');
       } else {
         resp.json().then((e) => setErrors(console.error())); // <-- this might not work <--
       }

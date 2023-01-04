@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import Comments from './Comments';
 
 function ProjectView() {
   const { id } = useParams();
@@ -8,7 +9,8 @@ function ProjectView() {
   async function fetchProjects() {
     return fetch(`/projects/${id}`).then((resp) => {
       if (resp.ok) {
-        resp.json().then((project) => setProject(project));
+        resp.json().then(console.log(project))
+        .then((project) => setProject(project));
       }
     });
   }
@@ -22,7 +24,12 @@ function ProjectView() {
       <h1>{project.title}</h1>
       <h2>{project.description}</h2>
       <h4>{project.number_of_people}</h4>
-      {/* <h5>{project.users.username}</h5> */}
+      {/* <h5>{project.notes.comments}</h5> */}
+      <div>
+        <div>
+          <Comments />
+        </div>
+      </div>
     </div>
   )
 }
