@@ -20,6 +20,8 @@ function App() {
     .then(resp => {
       if(resp.ok){
         resp.json().then(user => setCurrentUser(user))
+      } else {
+        resp.json().then((errorData) => setErrors(errorData.errors))
       }
     })
   }, [])

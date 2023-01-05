@@ -23,7 +23,7 @@ function Signup({ setCurrentUser }) {
         resp.json().then(setCurrentUser)
         history.push('/');
       } else {
-        resp.json().then((e) => setErrors(console.error())); // <-- this might not work <--
+        resp.json().then((errorData) => setErrors(errorData.errors)); // <-- this might not work <--
       }
     });
   }
@@ -43,7 +43,7 @@ function Signup({ setCurrentUser }) {
         resp.json().then(setCurrentUser)
         history.push('/');
       } else {
-        resp.json().then((e) => setErrors(console.error())); // <-- this might not work <--
+        resp.json().then((errorData) => setErrors(errorData.errors)); // <-- this might not work <--
       }
     });
   }
@@ -83,6 +83,13 @@ function Signup({ setCurrentUser }) {
                 value={password}
             onChange={(e) => setPassword(e.target.value)}             />
             </div>
+            {errors.length > 0 && (
+    <ul style={{ color: "red" }}>
+      {errors.map((error) => (
+        <li key={error}>{error}</li>
+      ))}
+    </ul>
+  )}
             <div className="d-grid gap-2 mt-3">
               <button type="submit" className="btn btn-primary">
                 Submit
@@ -125,6 +132,13 @@ function Signup({ setCurrentUser }) {
             onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          {errors.length > 0 && (
+    <ul style={{ color: "red" }}>
+      {errors.map((error) => (
+        <li key={error}>{error}</li>
+      ))}
+    </ul>
+  )}
           <div className="d-grid gap-2 mt-3">
             <button type="submit" className="btn btn-primary">
               Submit
