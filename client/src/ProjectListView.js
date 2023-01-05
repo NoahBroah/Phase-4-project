@@ -41,9 +41,9 @@ function ProjectListView() {
           return (
             <div key={project.id}  className="col-8 my-3">
             <div  className="project-card p-3">
-              <h2>Title: {project.title}</h2>
-              <h3>Description: {project.description}</h3>
-              <h5>Number of people needed: {project.number_of_people}</h5>
+              <h1>{project.title}</h1>
+              <h4>{project.description}</h4>
+              <h5>{project.number_of_people} people needed</h5>
               <div className="d-flex justify-content-around my-3 text-nowrap">
               <Link className="mx-5 btn btn-light" to={`/my_projects/${project.id}`}>View this project</Link>
               {/* <button onClick={() => handleViewProject(project.id)}>View this project</button> */}

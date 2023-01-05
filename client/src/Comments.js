@@ -24,7 +24,7 @@ function Comments({ project }) {
   }
 
   return (
-    <div>
+    <div className="comments">
       <div>
         <h5>Comments</h5>
       </div>

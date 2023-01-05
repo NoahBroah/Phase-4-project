@@ -20,6 +20,7 @@ code {
   background-repeat: no-repeat;
   width: 100%;
   height: auto;
+  font-family: monospace;
 }
 
 .Auth-form-container {
@@ -154,7 +155,13 @@ label {
   text-align: center;
   width: 100%;
   height: 100%;
-  background-color: #224ba2b7 ;
+  background-color: #224ba2e0;
+  color: white;
+}
+
+.project-card h1 {
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .text-center{
@@ -168,7 +175,7 @@ label {
   border-radius: 8px;
   border-width: 2px;
   color: white;
-  background-color: #5cb0e8;
+  background-color: #224ba2;
 font-family: monospace;
 }
 
@@ -262,3 +269,5 @@ margin-left: 25%;
   blink .8s infinite;
   animation-delay: 3.5s;
 }
+
+
