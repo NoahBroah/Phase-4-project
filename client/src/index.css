@@ -14,9 +14,12 @@ code {
 
 .App {
   /* background-color: hsl(148, 16%, 33%); */
-  background-image: url("/Users/noahking/Development/code/phase-4/phase-4-project/client/public/pexels-ann-h-1762851.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) ,url("/Users/noahking/Development/code/phase-4/phase-4-project/client/public/pexels-ann-h-1762851.jpg");
   background-size: cover;
-  color: whitesmoke;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
 }
 
 .Auth-form-container {
@@ -109,7 +112,7 @@ label {
 }
 
 .nav {
-  background-color: #5cb0e8;
+  background-color: #224ba2;
   justify-content: flex;
   color: white;
   justify-content: space-between;
@@ -200,4 +203,62 @@ margin-left: 25%;
 .solo-project span{
   color: black;
   text-decoration: underline;
+}
+
+.typed-out {
+  overflow: hidden;
+  border-right: .10em solid orange;
+  font-size: 3.6rem;
+  white-space: nowrap;
+  text-align: right;
+  width: 0;
+  animation:
+  typing 3.5s steps(40, end) forwards;
+}
+
+.type-container {
+  display: inline-block;
+  /* text-align: center; */
+  word-wrap: break-word;
+
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  from { border-color: transparent; }
+  to { border-color: orange; }
+}
+
+
+
+.home1 {
+  /* position: absolute; */
+  font-family: monospace;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  /* margin-left: 30%; */
+  margin-top: 18%;
+}
+
+
+.c1{
+  display: inline-block;
+}
+.typed-out2 {
+  overflow: hidden;
+  border-right: .10em solid orange;
+  font-size: 3.6rem;
+  white-space: nowrap;
+  text-align: right;
+  width: 0;
+  animation:
+  typing 1s steps(20, end) forwards,
+  blink .8s infinite;
+  animation-delay: 3.5s;
 }
