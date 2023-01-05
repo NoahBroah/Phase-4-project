@@ -10,23 +10,31 @@ function EditProjectView() {
   const { id } = useParams();
   const history = useHistory();
   const [formData, setFormData] = useState(initialForm);
+  const [errors, setErrors] = useState([])
 
   function handleEditSubmit(e) {
     e.preventDefault();
-
+    
     const updatedProject = { ...formData };
     fetch(`/projects/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedProject),
     })
-      .then((resp) => resp.json())
-      .then((updatedProject) => {
-        console.log(updatedProject);
-        if (!updatedProject?.errors) {
-          history.push(`/my_projects/${updatedProject.id}`);
-        }
-      });
+    .then(r => r.json())
+    .then((updatedProject) => {
+      // this only runs if api doesnt fail
+      if (updatedProject?.errors) {
+        setErrors(updatedProject.errors)
+      }
+      else {
+        // response is good
+        console.log(updatedProject)
+        history.push(`/my_projects/${updatedProject.id}`);
+      }
+      
+    })
+   
   }
 
   return (
@@ -85,6 +93,13 @@ function EditProjectView() {
                   }
                 />
               </div>
+              {errors.length > 0 && (
+    <ul style={{ color: "red" }}>
+      {errors.map((error) => (
+        <li key={error}>{error}</li>
+      ))}
+    </ul>
+  )}
               <div className="d-grid gap-2 mt-3">
                 <button type="submit" className="btn btn-primary">
                   Submit
