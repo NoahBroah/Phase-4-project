@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProjectListView from "./ProjectListView";
 import Projects from "./Projects";
 import "./home.css";
+import { Link } from "react-router-dom";
 
 function Home({ user }) {
   // // const [errors, setErrors] = useState([])
@@ -36,6 +37,16 @@ function Home({ user }) {
                 <div className="c1">
                   <div className="typed-out2">{user.username}</div>
                 </div>
+              </div>
+              <div className="my-projects-div">
+                {user.projects.map(project => {
+                  return(
+                    <div  key={project.id}>
+                      <h1>My Projects:</h1>
+                      <Link  className='home-project-links' to={`/my_projects/${project.id}`}>{project.title}</Link>
+                    </div>
+                  )
+                })}
               </div>
           </div>
 

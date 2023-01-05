@@ -1,8 +1,11 @@
 import React from 'react'
 
-function IndividualComment({comment}) {
+function IndividualComment({comment, user}) {
   return (
-    <div>{comment}</div>
+    <div>
+      <div>{comment}</div>
+      <div></div>
+    </div>
   )
 }
 

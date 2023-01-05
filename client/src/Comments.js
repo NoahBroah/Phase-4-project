@@ -20,6 +20,7 @@ function Comments({ project }) {
       body: JSON.stringify(newComment),
     })
       .then((res) => res.json())
+      .then(console.log(newComment))
       .then(setComment(""));
   }
 
@@ -34,7 +35,9 @@ function Comments({ project }) {
             <div className="comment">
               <IndividualComment 
           key={note.id}
-          comment={note.comment}/>
+          comment={note.comment}
+          // user = {note.users.username}
+          />
             </div>
           )
         })}

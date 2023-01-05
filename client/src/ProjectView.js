@@ -23,8 +23,8 @@ function ProjectView() {
     <div className="solo-project">
       <h1>Title: {project.title}</h1>
       <div className="solo-content">
-      <h3><span>Description: </span> {project.description}</h3>
-      <h3><span>People Needed: </span>{project.number_of_people}</h3>
+      <h3><span>Description:</span>  {project.description}</h3>
+      <h3><span>People Needed:</span>  {project.number_of_people}</h3>
         </div >
       <div>
         <div>

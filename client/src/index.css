@@ -214,13 +214,13 @@ margin-left: 25%;
 
 .typed-out {
   overflow: hidden;
-  border-right: .10em solid orange;
+  /* border-right: .10em solid orange; */
   font-size: 3.6rem;
   white-space: nowrap;
   text-align: right;
-  width: 0;
+  /* width: 0;
   animation:
-  typing 3.5s steps(40, end) forwards;
+  typing 3.5s steps(40, end) forwards; */
 }
 
 .type-container {
@@ -267,7 +267,7 @@ margin-left: 25%;
   animation:
   typing 1s steps(20, end) forwards,
   blink .8s infinite;
-  animation-delay: 3.5s;
+  animation-delay: .8s;
 }
 
 .comments {
@@ -290,4 +290,13 @@ margin-left: 25%;
 }
 .comment:nth-child(odd) {
   border-bottom: none;
+}
+
+.home-project-links {
+  border: #224ba2;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 2px;
+  color: white;
+  font-size: 2rem;
 }
