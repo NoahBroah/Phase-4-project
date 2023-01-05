@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import ProjectListView from "./ProjectListView";
 
-function Navbar({ setCurrentUser }) {
+function Navbar({ setCurrentUser, user}) {
   function handleLogout() {
     fetch("/logout", {
       method: "DELETE",
@@ -21,9 +21,11 @@ function Navbar({ setCurrentUser }) {
         </NavLink>
       </div>
       <div className="nav-inner">
+        {!user ? null :
         <NavLink to='/my_projects'>
           View Projects
         </NavLink>
+}
         <NavLink to="/signup" exact className="hvr-rotate">
           Signup
         </NavLink>

@@ -30,7 +30,7 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App" style={{minHeight: '100vh',}}>
-      <Navbar setCurrentUser={setCurrentUser}/>
+      <Navbar setCurrentUser={setCurrentUser} user={currentUser}/>
       <Switch>
         <Route exact path="/">
           <Home user={currentUser}/>
