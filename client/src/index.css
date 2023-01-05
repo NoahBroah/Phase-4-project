@@ -270,4 +270,24 @@ margin-left: 25%;
   animation-delay: 3.5s;
 }
 
+.comments {
+  border: 2px;
+  border-color: #224ba2;
+  border-style: solid;
+  background-color: white;
+  margin-right: 35%;
+  margin-left: 35%;
+}
 
+.comment {
+  border: 1px;
+  border-color: #224ba2;
+  border-style:solid;
+  padding: 2px;
+  border-collapse: collapse;
+  border-left: none;
+  border-right: none;
+}
+.comment:nth-child(odd) {
+  border-bottom: none;
+}

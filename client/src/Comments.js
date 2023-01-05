@@ -31,9 +31,11 @@ function Comments({ project }) {
       <div>
         {project?.notes?.map(note => {
           return (
-            <IndividualComment 
+            <div className="comment">
+              <IndividualComment 
           key={note.id}
           comment={note.comment}/>
+            </div>
           )
         })}
         

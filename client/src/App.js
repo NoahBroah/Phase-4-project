@@ -11,6 +11,7 @@ import ProjectView from './ProjectView';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
+  const [errors, setErrors] = useState([])
 
   // From the lessons on Authorization 
 

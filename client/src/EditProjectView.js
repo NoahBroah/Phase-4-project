@@ -23,7 +23,9 @@ function EditProjectView() {
       .then((resp) => resp.json())
       .then((updatedProject) => {
         console.log(updatedProject);
-        history.push(`/my_projects/${updatedProject.id}`);
+        if (!updatedProject?.errors) {
+          history.push(`/my_projects/${updatedProject.id}`);
+        }
       });
   }
 
