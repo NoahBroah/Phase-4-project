@@ -7,8 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 
-u1 = User.create!({ username:'Noah', password:'mypassword'})
-u2 = User.create!({ username:'Jerm', password:'mypassword'})
+u1 = User.create!({ username:'NewNoah', password:'mypassword'})
+u2 = User.create!({ username:'NewJerm', password:'mypassword'})
 users = [u1,u2]
 
 for a in 1..5 do
