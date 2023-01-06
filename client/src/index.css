@@ -14,7 +14,7 @@ code {
 
 .App {
   /* background-color: hsl(148, 16%, 33%); */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) ,url("/Users/noahking/Development/code/phase-4/phase-4-project/client/public/pexels-ann-h-1762851.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) ,url("https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

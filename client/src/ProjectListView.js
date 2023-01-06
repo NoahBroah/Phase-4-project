@@ -14,7 +14,7 @@ function ProjectListView() {
       }
     });
   }
-
+  
   useEffect(() => {
     fetchProjects();
   }, []);
