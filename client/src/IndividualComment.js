@@ -4,7 +4,7 @@ function IndividualComment({comment, user}) {
   return (
     <div>
       <div>{comment}</div>
-      <div></div>
+      <div>- {user.username}</div>
     </div>
   )
 }

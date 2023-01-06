@@ -2,19 +2,15 @@ import React, { useEffect, useState } from "react";
 import ProjectListView from "./ProjectListView";
 import Projects from "./Projects";
 import "./home.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+
 
 function Home({ user }) {
-  // // const [errors, setErrors] = useState([])
-  // const [projects, setProjects] = useState([])
-  // useEffect(()=> {
-  //   fetch('/projects')
-  //   .then(resp => {
-  //     if(resp.ok){
-  //       resp.json().then(projects => setProjects(projects))
-  //     }
-  //   })
-  // },[])
+ const history = useHistory()
+ function redirectToSignup() {
+    // history.push('/signup')
+    "Not Authorized"
+  }
 
   return (
     <div
@@ -25,7 +21,7 @@ function Home({ user }) {
       }}
     >
       {!user ? (
-        "Please login to see your account"
+        redirectToSignup()
       ) : (
 
             <div className="home1">
@@ -39,10 +35,11 @@ function Home({ user }) {
                 </div>
               </div>
               <div className="my-projects-div">
+                <h1>My Projects:</h1>
                 {user.projects.map(project => {
                   return(
                     <div  key={project.id}>
-                      <h1>My Projects:</h1>
+                      
                       <Link  className='home-project-links' to={`/my_projects/${project.id}`}>{project.title}</Link>
                     </div>
                   )

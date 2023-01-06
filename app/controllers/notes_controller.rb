@@ -2,7 +2,7 @@ class NotesController < ApplicationController
 
     def show
         note = Note.find_by(id: params[:id])
-        render json: note, include: :projects, status: :ok
+        render json: note, include: [:projects, :users], status: :ok
     end
     
     def index

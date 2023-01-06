@@ -18,14 +18,15 @@ function Signup({ setCurrentUser }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
-    }).then((resp) => {
-      if (resp.ok) {
-        resp.json().then(setCurrentUser)
-        history.push('/');
+    }).then(resp => resp.json())
+    .then((newUser) => {
+      if (newUser?.errors) {
+        setErrors(newUser.errors)
       } else {
-        resp.json().then((errorData) => setErrors(errorData.errors)); // <-- this might not work <--
+        setCurrentUser(newUser)
+        history.push('/')
       }
-    });
+    })
   }
 
   function handleLoginSubmit(e) {
@@ -38,14 +39,26 @@ function Signup({ setCurrentUser }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
-    }).then((resp) => {
-      if (resp.ok) {
-        resp.json().then(setCurrentUser)
-        history.push('/');
+    }).then(resp => resp.json())
+    .then((user) => {
+      if (user?.errors) {
+        setErrors(user.errors)
       } else {
-        resp.json().then((errorData) => setErrors(errorData.errors)); // <-- this might not work <--
+        setCurrentUser(user)
+        history.push('/')
       }
-    });
+    })
+    
+    
+    
+    // ((resp) => {
+    //   if (resp.ok) {
+    //     resp.json().then(setCurrentUser)
+    //     history.push('/');
+    //   } else {
+    //     resp.json().then((errorData) => setErrors(errorData.errors)); // <-- this might not work <--
+    //   }
+    // });
   }
 
   const changeAuthMode = () => {

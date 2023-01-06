@@ -36,7 +36,7 @@ function Comments({ project }) {
               <IndividualComment 
           key={note.id}
           comment={note.comment}
-          // user = {note.users.username}
+          user = {note.user}
           />
             </div>
           )
