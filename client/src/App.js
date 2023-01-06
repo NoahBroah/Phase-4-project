@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import "bootstrap/dist/css/bootstrap.min.css"
+// import "bootstrap/dist/css/bootstrap.min.css"
 import Navbar from './Navbar';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Signup from './Signup';

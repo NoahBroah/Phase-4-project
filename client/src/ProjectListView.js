@@ -4,7 +4,7 @@ import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 
 // function ProjectListView({ projects, changeProjectView, handleDeleteClick, handleViewProject }) {
 function ProjectListView() {
-
+  const [errors, setErrors] = useState([])
   const [projects, setProjects] = useState([]);
 
   async function fetchProjects() {
@@ -22,9 +22,16 @@ function ProjectListView() {
   function handleDeleteClick(id) {
     fetch(`/projects/${id}`, {
       method: "DELETE",
-    }).then(() => {
+    }).then(resp => resp.json())
+    .then((resp) => {
       // refetch projects and setProjects
-      return fetchProjects()
+      if (resp?.errors){
+        setErrors(resp.errors)
+        console.log(errors)
+      } else {
+        return fetchProjects()
+      }
+      
     });
   }
 
@@ -37,6 +44,15 @@ function ProjectListView() {
       </div>
       <div className="container">
         <div className="row justify-content-center">
+          <div>
+          {errors.length > 0 && (
+    <ul style={{ color: "red" }}>
+      {errors.map((error) => (
+        <li key={error}>{error}</li>
+      ))}
+    </ul>
+  )}
+          </div>
         {projects.map((project) => {
           return (
             <div key={project.id}  className="col-8 my-3">
