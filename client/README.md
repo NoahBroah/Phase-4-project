@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Key Features
+
+- Signup or Login with an account.
+- Create Projects once logged in.
+- View, Edit, and Delete Projects.
+- Leave comments on other peoples Projects.
+- User Authentication and Authorization.
+
 ## Available Scripts
 
 In the project directory, you can run:
