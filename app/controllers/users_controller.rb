@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
     def index
         user = User.all
-        render json: user, include: :projects
+        render json: user, include: :notes
     end
 
     private

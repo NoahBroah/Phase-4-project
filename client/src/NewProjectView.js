@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 const initialForm = {
-  title: "",
-  description: "",
+  title: '',
+  description: '',
   number_of_people: "",
 };
 
