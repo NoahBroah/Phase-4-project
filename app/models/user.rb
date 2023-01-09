@@ -6,5 +6,4 @@ class User < ApplicationRecord
     has_many :projects
     has_many :notes
     has_many :projects, through: :notes
-    has_many :projects
 end
