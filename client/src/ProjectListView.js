@@ -14,7 +14,7 @@ function ProjectListView() {
       }
     });
   }
-  
+
   useEffect(() => {
     fetchProjects();
   }, []);
@@ -22,8 +22,7 @@ function ProjectListView() {
   function handleDeleteClick(id) {
     fetch(`/projects/${id}`, {
       method: "DELETE",
-    }).then(resp => resp.json())
-    .then((resp) => {
+    }).then((resp) => {
       // refetch projects and setProjects
       if (resp?.errors){
         setErrors(resp.errors)
@@ -44,15 +43,6 @@ function ProjectListView() {
       </div>
       <div className="container">
         <div className="row justify-content-center">
-          <div>
-          {errors.length > 0 && (
-    <ul style={{ color: "red" }}>
-      {errors.map((error) => (
-        <li key={error}>{error}</li>
-      ))}
-    </ul>
-  )}
-          </div>
         {projects.map((project) => {
           return (
             <div key={project.id}  className="col-8 my-3">
