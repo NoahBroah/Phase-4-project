@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-require 'faker'
+# require 'faker'
 
 # u1 = User.create!({ username:'NewNoah', password:'mypassword'})
 # u2 = User.create!({ username:'NewJerm', password:'mypassword'})
@@ -19,5 +19,5 @@ require 'faker'
 #             # create notes for the project
 #             user.notes.create!({comment:Faker::Quote.famous_last_words, project_id: project.id})
 #         end
-#     end
-end   
+# #     end
+# end   
