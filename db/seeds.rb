@@ -7,17 +7,17 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 
-u1 = User.create!({ username:'NewNoah', password:'mypassword'})
-u2 = User.create!({ username:'NewJerm', password:'mypassword'})
-users = [u1,u2]
+# u1 = User.create!({ username:'NewNoah', password:'mypassword'})
+# u2 = User.create!({ username:'NewJerm', password:'mypassword'})
+# users = [u1,u2]
 
-for a in 1..5 do
-    for user in users do
-        # create project
-        project = user.projects.create!({title:Faker::Movie.title, description:Faker::Quote.famous_last_words, number_of_people:Faker::Number.number(digits: 2)})
-        for b in 1..5 do
-            # create notes for the project
-            user.notes.create!({comment:Faker::Quote.famous_last_words, project_id: project.id})
-        end
-    end
+# for a in 1..5 do
+#     for user in users do
+#         # create project
+#         project = user.projects.create!({title:Faker::Movie.title, description:Faker::Quote.famous_last_words, number_of_people:Faker::Number.number(digits: 2)})
+#         for b in 1..5 do
+#             # create notes for the project
+#             user.notes.create!({comment:Faker::Quote.famous_last_words, project_id: project.id})
+#         end
+#     end
 end   
