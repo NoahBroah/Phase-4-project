@@ -1,5 +1,5 @@
 class NoteSerializer < ActiveModel::Serializer
-  attributes :id, :comment, :user_id, :user, :project_id, :project
+  attributes :id, :comment, :user_id, :project_id, :user
   has_one :user
   has_one :project
 end

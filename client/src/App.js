@@ -47,7 +47,7 @@ function App() {
         </Route>
         {/* create new project */}
         <Route exact path="/my_projects/new">
-          <NewProjectView />
+          <NewProjectView user={currentUser}/>
         </Route>
         {/* display individual projects */}
         <Route exact path="/my_projects/:id">

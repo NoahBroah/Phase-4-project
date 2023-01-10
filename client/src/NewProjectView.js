@@ -1,30 +1,40 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-const initialForm = {
-  title: '',
-  description: '',
-  number_of_people: "",
-};
 
-function NewProjectView() {
+
+function NewProjectView({ user }) {
   const history = useHistory();
-  const [formData, setFormData] = useState(initialForm);
+  // const [formData, setFormData] = useState(initialForm);
+  const [errors, setErrors] = useState([]);
+  const [title, setTitle] = useState("")
+  const [description, setDescription] = useState("")
+  const [people, setPeople] = useState("")
 
   function handleNewProjectSubmit(e) {
     e.preventDefault();
 
-    const newProject = { ...formData };
+    const newProject = { 
+      user_id: user?.id,
+      title: title,
+      description: description,
+      number_of_people: people
+    };
     // handleNewProject(newProject)
-
+    console.log(newProject)
     fetch("/projects", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newProject),
-    })
-      .then((resp) => resp.json())
+    }).then((resp) => resp.json())
       .then((newProject) => {
-        console.log(newProject);
-        history.push(`/my_projects/${newProject.id}`);
+        if (newProject?.errors) {
+          setErrors(newProject.errors)
+        }
+        else {
+          console.log(newProject)
+          history.push(`/my_projects/${newProject.id}`);
+        }
+        
       });
   }
 
@@ -49,12 +59,9 @@ function NewProjectView() {
                   name="title"
                   className="form-control mt-1"
                   placeholder="Enter title"
-                  value={formData.title}
+                  value={title}
                   onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      [e.target.name]: e.target.value,
-                    })
+                    setTitle(e.target.value)
                   }
                 />
               </div>
@@ -65,12 +72,9 @@ function NewProjectView() {
                   name="description"
                   className="form-control mt-1"
                   placeholder="Enter description"
-                  value={formData.description}
+                  value={description}
                   onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      [e.target.name]: e.target.value,
-                    })
+                    setDescription(e.target.value)
                   }
                 />
               </div>
@@ -81,12 +85,9 @@ function NewProjectView() {
                   name="number_of_people"
                   className="form-control mt-1"
                   placeholder="Enter a number"
-                  value={formData.number_of_people}
+                  value={people}
                   onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      [e.target.name]: e.target.value,
-                    })
+                    setPeople(e.target.value)
                   }
                 />
               </div>

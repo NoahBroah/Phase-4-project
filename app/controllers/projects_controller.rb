@@ -2,14 +2,14 @@ class ProjectsController < ApplicationController
     before_action :authorize
     skip_before_action :authorize, only: :index
     def create
-        project = @current_user.projects.create(project_params)
+        project = Project.create(project_params)
         
         render json: project, status: :created
     end
 
     def show
         project = Project.find_by(id: params[:id])
-        render json: project, include: [:users, :notes], status: :ok
+        render json: project, status: :ok
     end
     
     def index
@@ -42,6 +42,6 @@ class ProjectsController < ApplicationController
     private
 
     def project_params
-        params.permit(:title, :description, :number_of_people)
+        params.permit(:user_id, :title, :description, :number_of_people)
     end
 end

@@ -34,7 +34,7 @@ function Home({ user }) {
                   <div className="typed-out2">{user.username}</div>
                 </div>
               </div>
-              <div className="my-projects-div">
+              {/* <div className="my-projects-div">
                 <h1>My Projects:</h1>
                 {user.projects.map(project => {
                   return(
@@ -44,7 +44,7 @@ function Home({ user }) {
                     </div>
                   )
                 })}
-              </div>
+              </div> */}
           </div>
 
       )}

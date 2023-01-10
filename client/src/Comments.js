@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import IndividualComment from "./IndividualComment";
 
 function Comments({ project }) {
   const { id } = useParams()
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState("")
+  const history = useHistory();
+
 
   console.log(project)
 
@@ -21,7 +23,8 @@ function Comments({ project }) {
     })
       .then((res) => res.json())
       .then(console.log(newComment))
-      .then(setComment(""));
+      .then(setComment(""))
+      history.push(`/my_projects`);
   }
 
   return (
