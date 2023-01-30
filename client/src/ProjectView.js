@@ -5,12 +5,11 @@ import Comments from './Comments';
 function ProjectView() {
   const { id } = useParams();
   const [project, setProject] = useState({});
-  console.log(id)
+  
   async function fetchProjects() {
     return fetch(`/projects/${id}`)
     .then(r => r.json())
     .then((project) => {
-      console.log(project)
       setProject(project);
     });
   }

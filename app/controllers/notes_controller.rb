@@ -16,6 +16,28 @@ class NotesController < ApplicationController
         render json: note, status: :created
     end
 
+    def update
+        user = @current_user
+        note = Note.find_by(id: params[:id])
+        if user.id == note.user_id
+            note.update(note_params)
+            render json: note, status: :created
+        else
+            render json: {errors: ["Not Authorized"]}, status: :unauthorized
+        end
+    end
+
+    def destroy
+            user = @current_user
+            note = Note.find_by(id: params[:id])
+            if user.id == note.user_id
+                note.delete
+                head :no_content
+            else
+                render json: { errors: ["Not Authorized"]}, status: :unauthorized
+            end
+        end
+
     private
 
     def note_params

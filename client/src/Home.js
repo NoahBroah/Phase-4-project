@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ProjectListView from "./ProjectListView";
-import Projects from "./Projects";
 import "./home.css";
 import { Link, useHistory } from "react-router-dom";
 
@@ -8,7 +7,6 @@ import { Link, useHistory } from "react-router-dom";
 function Home({ user }) {
  const history = useHistory()
  function redirectToSignup() {
-    // history.push('/signup')
     "Not Authorized"
   }
 
@@ -34,17 +32,16 @@ function Home({ user }) {
                   <div className="typed-out2">{user.username}</div>
                 </div>
               </div>
-              {/* <div className="my-projects-div">
+              <div className="my-projects-div">
                 <h1>My Projects:</h1>
                 {user.projects.map(project => {
                   return(
                     <div  key={project.id}>
-                      
                       <Link  className='home-project-links' to={`/my_projects/${project.id}`}>{project.title}</Link>
                     </div>
                   )
                 })}
-              </div> */}
+              </div>
           </div>
 
       )}

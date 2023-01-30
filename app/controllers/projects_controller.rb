@@ -17,27 +17,27 @@ class ProjectsController < ApplicationController
         render json: projects, status: :ok
     end
 
-    def update
-        user = @current_user
-        project = Project.find_by(id: params[:id])
-        if user.id == project.user_id
-            project.update(project_params)
-            render json: project, status: :created
-        else
-            render json: {errors: ["Not Authorized"]}, status: :unauthorized
-        end
-    end
+    # def update
+    #     user = @current_user
+    #     project = Project.find_by(id: params[:id])
+    #     if user.id == project.user_id
+    #         project.update(project_params)
+    #         render json: project, status: :created
+    #     else
+    #         render json: {errors: ["Not Authorized"]}, status: :unauthorized
+    #     end
+    # end
 
-    def destroy
-        user = @current_user
-        project = Project.find_by(id: params[:id])
-        if user.id == project.user_id
-            project.delete
-            head :no_content
-        else
-            render json: { errors: ["Not Authorized"]}, status: :unauthorized
-        end
-    end
+    # def destroy
+    #     user = @current_user
+    #     project = Project.find_by(id: params[:id])
+    #     if user.id == project.user_id
+    #         project.delete
+    #         head :no_content
+    #     else
+    #         render json: { errors: ["Not Authorized"]}, status: :unauthorized
+    #     end
+    # end
 
     private
 

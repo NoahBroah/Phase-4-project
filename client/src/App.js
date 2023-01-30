@@ -7,14 +7,13 @@ import Signup from './Signup';
 import Home from './Home';
 import ProjectListView from './ProjectListView';
 import NewProjectView from './NewProjectView';
-import EditProjectView from './EditProjectView';
 import ProjectView from './ProjectView';
+import EditComment from './EditComment';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [errors, setErrors] = useState([])
 
-  // From the lessons on Authorization 
 
   useEffect(() => {
     fetch('/auth')
@@ -26,6 +25,8 @@ function App() {
       }
     })
   }, [])
+
+  
    
   // if(!currentUser) return <Signup setCurrentUser={setCurrentUser} />
   return (
@@ -55,8 +56,8 @@ function App() {
           <ProjectView />
         </Route>
         {/* display all projects */}
-        <Route exact path="/my_projects/:id/edit">
-          <EditProjectView />
+        <Route exact path="/notes/:id/edit">
+          <EditComment />
         </Route>
       </Switch>
     </div>

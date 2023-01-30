@@ -19,20 +19,22 @@ function ProjectListView() {
     fetchProjects();
   }, []);
 
-  function handleDeleteClick(id) {
-    fetch(`/projects/${id}`, {
-      method: "DELETE",
-    }).then((resp) => {
-      // refetch projects and setProjects
-      if (resp?.errors){
-        setErrors(resp.errors)
-        console.log(errors)
-      } else {
-        return fetchProjects()
-      }
+// REMOVED DELETE PROJECT FUNCTIONALITY
+
+  // function handleDeleteClick(id) {
+  //   fetch(`/projects/${id}`, {
+  //     method: "DELETE",
+  //   }).then((resp) => {
+  //     // refetch projects and setProjects
+  //     if (resp?.errors){
+  //       setErrors(resp.errors)
+  //       console.log(errors)
+  //     } else {
+  //       return fetchProjects()
+  //     }
       
-    });
-  }
+  //   });
+  // }
 
   return (
     <div>
@@ -52,13 +54,16 @@ function ProjectListView() {
               <h5>{project.number_of_people} people needed</h5>
               <div className="d-flex justify-content-around my-3 text-nowrap">
               <Link className="mx-5 btn btn-light" to={`/my_projects/${project.id}`}>View this project</Link>
+
+
+              {/*MOVED EDIT AND DELETE BUTTONS TO COMMENT */}
               {/* <button onClick={() => handleViewProject(project.id)}>View this project</button> */}
-              <Link className="mx-5 btn btn-light" to={`/my_projects/${project.id}/edit`}>
+              {/* <Link className="mx-5 btn btn-light" to={`/my_projects/${project.id}/edit`}>
                 <BsFillPencilFill />
               </Link>
               <button className="mx-5 btn btn-danger" onClick={() => handleDeleteClick(project.id)}>
               <BsFillTrashFill />
-              </button>
+              </button> */}
               </div>
             </div>
         </div>

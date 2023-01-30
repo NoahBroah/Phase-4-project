@@ -14,7 +14,7 @@ function NewProjectView({ user }) {
     e.preventDefault();
 
     const newProject = { 
-      user_id: user?.id,
+      // user_id: user?.id,
       title: title,
       description: description,
       number_of_people: people
