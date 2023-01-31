@@ -12,6 +12,7 @@ import EditComment from './EditComment';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
+  const [projects, setProjects] = useState([])
   const [errors, setErrors] = useState([])
 
 
@@ -25,8 +26,20 @@ function App() {
       }
     })
   }, [])
+  console.log(projects)
 
-  
+  useEffect(() => {
+    fetch('/projects')
+    .then(resp => {
+      if(resp.ok) {
+        resp.json().then(projects => setProjects(projects))
+      } else {
+        resp.json().then((errorData) => setErrors(errorData.errors))
+      }
+    })
+  }, [])
+
+
    
   // if(!currentUser) return <Signup setCurrentUser={setCurrentUser} />
   return (
@@ -43,17 +56,17 @@ function App() {
         {/* view all projects */}
         <Route exact path="/my_projects">
           <ProjectListView 
-          // id={id}
+          projects={projects}
           />
         </Route>
         {/* create new project */}
         <Route exact path="/my_projects/new">
-          <NewProjectView user={currentUser}/>
+          <NewProjectView user={currentUser} setProjects={setProjects} projects={projects} />
         </Route>
         {/* display individual projects */}
         <Route exact path="/my_projects/:id">
           {/* <div>project view</div> */}
-          <ProjectView />
+          <ProjectView projects={projects} setProjects={setProjects} />
         </Route>
         {/* display all projects */}
         <Route exact path="/notes/:id/edit">

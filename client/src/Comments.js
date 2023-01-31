@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import IndividualComment from "./IndividualComment";
 
-function Comments({ project }) {
-  const { id } = useParams();
+function Comments({ notes, setNotes, id }) {
+  // const { id } = useParams();
   const [comment, setComment] = useState("");
-  const history = useHistory();
   const [errors, setErrors] = useState([]);
 
   function handleSubmit(e) {
@@ -20,12 +19,22 @@ function Comments({ project }) {
       body: JSON.stringify(newComment),
     })
       .then((res) => res.json())
-      .then(console.log(newComment))
-      // Update state of Project
-      .then(setComment(""));
-    history.push(`/my_projects`);
-    
+      .then((newComment) => {
+        if (newComment?.errors) {
+          setErrors(newComment.errors);
+        } else {
+          setNotes([...notes, newComment]);
+          setComment("");
+        }
+      });
+   
   }
+
+  // function deleteComment() {
+    
+  // }
+
+  console.log(notes);
 
   return (
     <div className="comments">
@@ -33,12 +42,14 @@ function Comments({ project }) {
         <h5>Comments</h5>
       </div>
       <div>
-        {project?.notes?.map((note) => {
+        {notes?.map((note) => {
           return (
             <div className="comment" key={note.id}>
               <IndividualComment
-                comment={note.comment}
-                user={note.user}
+                // comment={note.comment}
+                // user={note.user}
+                notes={notes}
+                setNotes={setNotes}
                 note={note}
               />
             </div>

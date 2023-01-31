@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 
-function NewProjectView({ user }) {
+function NewProjectView({ projects, setProjects }) {
   const history = useHistory();
   // const [formData, setFormData] = useState(initialForm);
   const [errors, setErrors] = useState([]);
@@ -14,7 +14,6 @@ function NewProjectView({ user }) {
     e.preventDefault();
 
     const newProject = { 
-      // user_id: user?.id,
       title: title,
       description: description,
       number_of_people: people
@@ -31,7 +30,7 @@ function NewProjectView({ user }) {
           setErrors(newProject.errors)
         }
         else {
-          console.log(newProject)
+          setProjects([...projects,newProject])
           history.push(`/my_projects/${newProject.id}`);
         }
         

@@ -3,45 +3,27 @@ import { useHistory, Link } from "react-router-dom";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 
 // function ProjectListView({ projects, changeProjectView, handleDeleteClick, handleViewProject }) {
-function ProjectListView() {
+function ProjectListView({ projects }) {
   const [errors, setErrors] = useState([])
-  const [projects, setProjects] = useState([]);
+  // const [projects, setProjects] = useState([]);
 
-  async function fetchProjects() {
-    return fetch("/projects").then((resp) => {
-      if (resp.ok) {
-        resp.json().then((projects) => setProjects(projects));
-      }
-    });
-  }
-
-  useEffect(() => {
-    fetchProjects();
-  }, []);
-
-// REMOVED DELETE PROJECT FUNCTIONALITY
-
-  // function handleDeleteClick(id) {
-  //   fetch(`/projects/${id}`, {
-  //     method: "DELETE",
-  //   }).then((resp) => {
-  //     // refetch projects and setProjects
-  //     if (resp?.errors){
-  //       setErrors(resp.errors)
-  //       console.log(errors)
-  //     } else {
-  //       return fetchProjects()
+  // async function fetchProjects() {
+  //   return fetch("/projects").then((resp) => {
+  //     if (resp.ok) {
+  //       resp.json().then((projects) => setProjects(projects));
   //     }
-      
   //   });
   // }
+
+  // useEffect(() => {
+  //   fetchProjects();
+  // }, []);
+
 
   return (
     <div>
       <div className="text-center">
         <Link to="/my_projects/new">Create New Project</Link>
-        {/* <button onClick={goToCreateProjectView}>
-            </button> */}
       </div>
       <div className="container">
         <div className="row justify-content-center">

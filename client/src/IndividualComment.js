@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 
 
-function IndividualComment({ comment, user, note }) {
+function IndividualComment({ note, notes, setNotes }) {
   const [errors, setErrors] = useState([]);
   // const [comments, setComments] = useState([]);
 
@@ -14,19 +14,20 @@ function IndividualComment({ comment, user, note }) {
   //     }
   //   });
   // }
-  console.log(note.user_id)
-  console.log(user.id)
+
 
   function handleDeleteClick(id) {
     fetch(`/notes/${id}`, {
       method: "DELETE",
-    }).then((resp) => {
+    })
+    // .then(resp => resp.json())
+    .then((resp) => {
       if (resp?.errors) {
         setErrors(resp.errors);
         console.log(errors);
       } else {
+        setNotes(notes.filter((n) => n.id !== id))
         // setComments({...comments});
-        console.log(comment)
       }
     });
   }
@@ -34,8 +35,8 @@ function IndividualComment({ comment, user, note }) {
 
   return (
     <div>
-      <div>{comment}</div>
-      <div>- {user.username}</div>
+      <div>{note?.comment}</div>
+      <div>- {note?.user.username}</div>
      
       
       <Link
