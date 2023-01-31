@@ -22,7 +22,7 @@ function Navbar({ setCurrentUser, user}) {
       </div>
       <div className="nav-inner">
         {!user ? null :
-        <NavLink to='/my_projects'>
+        <NavLink to='/all_projects'>
           View Projects
         </NavLink>
 }

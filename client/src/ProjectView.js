@@ -5,7 +5,7 @@ import Comments from "./Comments";
 function ProjectView({ projects, setProjects }) {
   const { id } = useParams();
 
-  const project = projects.find((project) => project.id == id) ?? {};
+  const project = projects.find((project) => project.id == id);
 
   const setNotes = (notes) => {
     const updatedProject = {
@@ -31,7 +31,7 @@ function ProjectView({ projects, setProjects }) {
       <div>
         <div>
           <Comments
-            notes={project.notes ?? []}
+            notes={project.notes}
             setNotes={setNotes}
             id={project.id}
           />
