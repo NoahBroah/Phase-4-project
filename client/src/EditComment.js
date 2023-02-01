@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
-function EditComment() {
+function EditComment({ projects }) {
   const { id } = useParams();
   const [comment, setComment] = useState("");
   const [errors, setErrors] = useState([]);

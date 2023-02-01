@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import ProjectListView from "./ProjectListView";
 import "./home.css";
 import { Link, useHistory } from "react-router-dom";
 
 
-function Home({ user }) {
+function Home({ user, setUser }) {
  const history = useHistory()
  function redirectToSignup() {
     "Not Authorized"
   }
+
+
 
   return (
     <div

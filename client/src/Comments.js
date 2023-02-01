@@ -23,6 +23,7 @@ function Comments({ notes, setNotes, id }) {
         if (newComment?.errors) {
           setErrors(newComment.errors);
         } else {
+          console.log('haha')
           setNotes([...notes, newComment]);
           setComment("");
         }
@@ -30,9 +31,6 @@ function Comments({ notes, setNotes, id }) {
    
   }
 
-  // function deleteComment() {
-    
-  // }
 
   console.log(notes);
 
@@ -63,6 +61,13 @@ function Comments({ notes, setNotes, id }) {
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
+          {errors.length > 0 && (
+    <ul style={{ color: "red" }}>
+      {errors.map((error) => (
+        <li key={error}>{error}</li>
+      ))}
+    </ul>
+  )}
           <div>
             <button type="submit">Submit Comment</button>
           </div>

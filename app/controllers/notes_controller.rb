@@ -13,7 +13,11 @@ class NotesController < ApplicationController
     def create
         note = @current_user.notes.create(note_params)
         
-        render json: note, status: :created
+        if note.valid?
+            render json: note, status: :created
+        else
+            render json: { errors: note.errors.full_messages }, status: :unprocessable_entity
+        end
     end
 
     def update

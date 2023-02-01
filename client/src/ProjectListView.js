@@ -25,15 +25,6 @@ function ProjectListView({ projects }) {
               <div className="d-flex justify-content-around my-3 text-nowrap">
               <Link className="mx-5 btn btn-light" to={`/my_projects/${project.id}`}>View this project</Link>
 
-
-              {/*MOVED EDIT AND DELETE BUTTONS TO COMMENT */}
-              {/* <button onClick={() => handleViewProject(project.id)}>View this project</button> */}
-              {/* <Link className="mx-5 btn btn-light" to={`/my_projects/${project.id}/edit`}>
-                <BsFillPencilFill />
-              </Link>
-              <button className="mx-5 btn btn-danger" onClick={() => handleDeleteClick(project.id)}>
-              <BsFillTrashFill />
-              </button> */}
               </div>
             </div>
         </div>

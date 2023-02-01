@@ -48,7 +48,7 @@ function App() {
       <Navbar setCurrentUser={setCurrentUser} user={currentUser}/>
       <Switch>
         <Route exact path="/">
-          <Home user={currentUser}/>
+          <Home user={currentUser} setUser={setCurrentUser} />
         </Route>
         <Route exact path="/signup">
           <Signup setCurrentUser={setCurrentUser}/>
@@ -70,7 +70,7 @@ function App() {
         </Route>
         {/* display all projects */}
         <Route exact path="/notes/:id/edit">
-          <EditComment />
+          <EditComment projects={projects}/>
         </Route>
       </Switch>
     </div>
