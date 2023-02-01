@@ -27,11 +27,7 @@ function Comments({ notes, setNotes, id }) {
           setComment("");
         }
       });
-   
   }
-
-
-  console.log(notes);
 
   return (
     <div className="comments">
@@ -61,12 +57,12 @@ function Comments({ notes, setNotes, id }) {
             onChange={(e) => setComment(e.target.value)}
           />
           {errors.length > 0 && (
-    <ul style={{ color: "red" }}>
-      {errors.map((error) => (
-        <li key={error}>{error}</li>
-      ))}
-    </ul>
-  )}
+            <ul style={{ color: "red" }}>
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+          )}
           <div>
             <button type="submit">Submit Comment</button>
           </div>
