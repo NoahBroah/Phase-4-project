@@ -12,6 +12,7 @@ delete '/logout', to: 'sessions#destroy'
 post '/signup', to: 'users#create'
 get '/auth', to: 'users#show'
 get '/users', to: 'users#index'
+get '/top_users', to: 'users#top_users'
 
 
 

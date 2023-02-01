@@ -5,19 +5,7 @@ import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 // function ProjectListView({ projects, changeProjectView, handleDeleteClick, handleViewProject }) {
 function ProjectListView({ projects }) {
   const [errors, setErrors] = useState([])
-  // const [projects, setProjects] = useState([]);
-
-  // async function fetchProjects() {
-  //   return fetch("/projects").then((resp) => {
-  //     if (resp.ok) {
-  //       resp.json().then((projects) => setProjects(projects));
-  //     }
-  //   });
-  // }
-
-  // useEffect(() => {
-  //   fetchProjects();
-  // }, []);
+ 
 
 
   return (

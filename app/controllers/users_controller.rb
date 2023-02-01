@@ -21,6 +21,17 @@ class UsersController < ApplicationController
         render json: user
     end
 
+#     Top Users
+# Create a custom route which finds the top three app users. Use the number of notes that user has created as a way of measuring who the top users are. If there is a tie, it is ok to send back more than three users.
+
+    # def top_users
+    #     #Get the users
+    #     users = User.joins(:notes).group('users.id').where('notes.')
+    #     #Find number of notes for each user
+
+    #     # find users by amount of notes created
+    # end
+
     private
 
     def user_params
