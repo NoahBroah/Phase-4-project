@@ -26,7 +26,7 @@ function NewProjectView({ projects, setProjects }) {
       body: JSON.stringify(newProject),
     }).then((resp) => resp.json())
       .then((newProject) => {
-        if (newProject?.errors) {
+        if (newProject.errors) {
           setErrors(newProject.errors)
         }
         else {
@@ -91,6 +91,13 @@ function NewProjectView({ projects, setProjects }) {
                 />
               </div>
               <div className="d-grid gap-2 mt-3">
+              {errors.length > 0 && (
+    <ul style={{ color: "red" }}>
+      {errors.map((error) => (
+        <li key={error}>{error}</li>
+      ))}
+    </ul>
+  )}
                 <button type="submit" className="btn btn-primary">
                   Submit
                 </button>

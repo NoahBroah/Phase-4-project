@@ -3,8 +3,11 @@ class ProjectsController < ApplicationController
     skip_before_action :authorize, only: :index
     def create
         project = Project.create(project_params)
-        
-        render json: project, status: :created
+        if project.valid?
+            render json: project, status: :created
+        else
+            render json: { errors: project.errors.full_messages }, status: :unprocessable_entity
+        end
     end
 
     def show
