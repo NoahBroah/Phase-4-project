@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Comments from "./Comments";
 
@@ -34,8 +34,6 @@ function ProjectView({ projects, setProjects }) {
             notes={project.notes ?? []}
             setNotes={setNotes}
             id={project.id}
-            projets={project}
-            setProjects={setProjects}
           />
         </div>
       </div>

@@ -23,7 +23,6 @@ function Comments({ notes, setNotes, id }) {
         if (newComment?.errors) {
           setErrors(newComment.errors);
         } else {
-          console.log('haha')
           setNotes([...notes, newComment]);
           setComment("");
         }

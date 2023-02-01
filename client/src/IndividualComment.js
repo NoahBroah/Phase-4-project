@@ -27,16 +27,7 @@ function IndividualComment({ note, notes, setNotes }) {
    
   }
 
-  // .then((resp) => resp.json())
-  // .then((resp) => {
-  //   if (resp?.errors) {
-  //     setErrors(resp.errors);
-  //     console.log(errors);
-  //   } else {
-  //     setNotes(notes.filter((note) => note.id !== id));
-  //     console.log("hello")
-  //   }
-  // });
+ 
   return (
     <div>
       <div>{note?.comment}</div>

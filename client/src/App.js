@@ -25,7 +25,7 @@ function App() {
         resp.json().then((errorData) => setErrors(errorData.errors))
       }
     })
-  }, [])
+  }, [projects])
   console.log(projects)
 
   useEffect(() => {
